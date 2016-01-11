@@ -54,7 +54,7 @@
                 <td id="cab"></td>
             </tr>
             <tr>
-                <td>Coupon</td>
+                <td>Route Selected</td>
                 <td id="c"></td>
             </tr>
             </tbody>
@@ -110,7 +110,8 @@
             $('#from').html(source);
             $('#to').html(destination);
             $('#cab').html(cab_type);
-            $('#c').html('Not Avalible');
+            $('#c').html(data['payload']['route_selected']);
+
 
             $('#booking_id').html(data['payload']['booking_id']);
             $('#price').html(data['payload']['total_price']);

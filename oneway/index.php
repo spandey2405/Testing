@@ -116,9 +116,18 @@
             $('#booking_id').html(data['payload']['booking_id']);
             $('#price').html(data['payload']['total_price']);
             $('#distance').html(data['payload']['total_distance']);
-            $('#duration').html(data['payload']['duration']);
+            $('#duration').html(secondsTimeSpanToHMS(data['payload']['duration']));
         });
     })
+
+    function secondsTimeSpanToHMS(s) {
+
+        var h = Math.floor(s/3600); //Get whole hours
+        s -= h*3600;
+        var m = Math.floor(s/60); //Get remaining minutes
+        s -= m*60;
+        return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+    }
 
 </script>
 </body>
